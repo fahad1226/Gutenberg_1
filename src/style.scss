@@ -1,0 +1,22 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-fahad-block {
+	background-color: rgb(36, 31, 32);
+	color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.block-editor-rich-text__editable {
+	background-color: red($color: #532626);
+}
+
+.container {
+	width: 300px;
+	margin: 20px;
+}
