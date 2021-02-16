@@ -4,7 +4,18 @@ const ALLOWED_BUTTON = ["core/button"];
 const FirstBlock = ({ attributes, setAttributes }) => {
 	return (
 		<div>
-			<div className="container wp-box">
+			<div className="container wp-box"
+				style={{
+					backgroundImage: `url(${attributes.backgroundImage})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					backgroundRepeat: "no-repeat",
+					opacity: `${attributes.overlayOpacity}`,
+					backgroundColor: `${attributes.overlayColor}`,
+					width: "50%",
+					height: "50%",
+				}}
+			>
 				<RichText
 					tagName="h4"
 					placeholder="the title"

@@ -9,7 +9,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { InnerBlocks, RichText } from "@wordpress/block-editor";
+import FirstSave from "./components/Website/FirstSave";
+import SecondSave from "./components/Website/SecondSave";
 import "./style.scss";
 /**
  * The save function defines the way in which the different attributes should
@@ -22,32 +23,9 @@ import "./style.scss";
  */
 export default function save(props) {
 	return (
-		<div
-			style={{
-				backgroundImage: `url(${props.attributes.backgroundImage})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat",
-				opacity: `${props.attributes.overlayOpacity}`,
-				backgroundColor: `${props.attributes.overlayColor}`,
-			}}
-		>
-			{/* <InnerBlocks.Content /> */}
-			<div className="container">
-				<RichText.Content
-					tagName="h2"
-					value={props.attributes.title}
-					style={{ color: props.attributes.titleColor }}
-				/>
-
-				<RichText.Content
-					tagName="p"
-					value={props.attributes.description}
-					style={{ color: props.attributes.descriptionColor }}
-				/>
-				<InnerBlocks.Content />
-			</div>
-			<h1 className="fahad">hello fahad bin munir</h1>
+		<div>
+			<FirstSave attributes={props.attributes} />
+			<SecondSave />
 		</div>
 	);
 }

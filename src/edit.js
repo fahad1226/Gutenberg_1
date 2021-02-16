@@ -21,7 +21,8 @@ import {
 	BlockControls,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import FirstBlock from "./components/Editor/FirstBlock";
+import SecondBlock from "./components/Editor/SecondBlock";
+import Typography from "./components/Sidebar/Practice/Typography";
 import TopBar from "./components/Sidebar/TopBar";
 import "./editor.scss";
 import "./style.scss";
@@ -60,19 +61,11 @@ export default function Edit({ className, attributes, setAttributes }) {
 				<TopBar attributes={attributes} setAttributes={setAttributes} />
 			</InspectorControls>
 
-			<div
-				style={{
-					backgroundImage: `url(${attributes.backgroundImage})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					backgroundRepeat: "no-repeat",
-					opacity: `${attributes.overlayOpacity}`,
-					backgroundColor: `${attributes.overlayColor}`,
-					width: "50%",
-					height: "50%",
-				}}
-			>
+			<InspectorControls>
+				<Typography attributes={attributes} setAttributes={setAttributes} />
+			</InspectorControls>
 
+			<div>
 				<BlockControls>
 					<AlignmentToolbar
 						value={attributes.alignment}
@@ -80,7 +73,8 @@ export default function Edit({ className, attributes, setAttributes }) {
 					/>
 				</BlockControls>
 
-				<FirstBlock attributes={attributes} setAttributes={setAttributes} />
+				{/* <FirstBlock attributes={attributes} setAttributes={setAttributes} /> */}
+				<SecondBlock attributes={attributes} setAttributes={setAttributes} />
 
 				{/* <div>
 					<Hello />

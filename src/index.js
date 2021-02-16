@@ -13,8 +13,6 @@ import { __ } from "@wordpress/i18n";
 /**
  * Internal dependencies
  */
-
- 
 import Edit from "./edit";
 import save from "./save";
 /**
@@ -106,6 +104,11 @@ registerBlockType("create-block/fahad-block", {
 		alignment: {
 			type: "string",
 			default: "none",
+		},
+		secondDescription: {
+			type: "string",
+			source: "html",
+			selector: "p",
 		},
 	},
 
