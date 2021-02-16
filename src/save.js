@@ -9,7 +9,6 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import FirstSave from "./components/Website/FirstSave";
 import SecondSave from "./components/Website/SecondSave";
 import "./style.scss";
 /**
@@ -24,8 +23,8 @@ import "./style.scss";
 export default function save(props) {
 	return (
 		<div>
-			<FirstSave attributes={props.attributes} />
-			<SecondSave />
+			{/* <FirstSave attributes={props.attributes} /> */}
+			<SecondSave attributes={props.attributes} />
 		</div>
 	);
 }

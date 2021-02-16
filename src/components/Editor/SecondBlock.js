@@ -1,15 +1,18 @@
-import { RichText } from "@wordpress/block-editor"
+import { RichText } from "@wordpress/block-editor";
 
 const SecondBlock = ({ attributes, setAttributes }) => {
-    console.log(attributes.secondDescription);
+    const handleChange = (newContent) => {
+        console.log(attributes);
+        setAttributes({ secondDescription: newContent});
+    }
 	return (
 		<div>
-			<RichText 
-                tagName="p"
-                placeholder="give me someting"
-                value={attributes.secondDescription}
-                onChange={(secondDescription) => setAttributes({ secondDescription })}
-            />
+			<RichText
+				tagName="p"
+				placeholder="give me someting"
+				value={attributes.secondDescription}
+				onChange={handleChange}
+			/>
 		</div>
 	);
 };
