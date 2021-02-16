@@ -19,24 +19,19 @@
 import {
 	AlignmentToolbar,
 	BlockControls,
-	InnerBlocks,
 	InspectorControls,
-	RichText,
 } from "@wordpress/block-editor";
-import { __ } from "@wordpress/i18n";
-import Hello from "./components/Hello";
+import FirstBlock from "./components/Editor/FirstBlock";
 import TopBar from "./components/Sidebar/TopBar";
 import "./editor.scss";
 import "./style.scss";
 
-const ALLOWED_BUTTON = ["core/button"];
-
-const MY_TERMPLATE = [
-	["core/image", {}],
-	["core/heading", { placeholder: "give the title" }],
-	["core/paragraph", { placeholder: "give the description" }],
-	["core/button", { placeholder: "Call to action" }],
-];
+// const MY_TERMPLATE = [
+// 	["core/image", {}],
+// 	["core/heading", { placeholder: "give the title" }],
+// 	["core/paragraph", { placeholder: "give the description" }],
+// 	["core/button", { placeholder: "Call to action" }],
+// ];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -77,7 +72,6 @@ export default function Edit({ className, attributes, setAttributes }) {
 					height: "50%",
 				}}
 			>
-				{/* <InnerBlocks template={MY_TERMPLATE} templateLock="insert" /> */}
 
 				<BlockControls>
 					<AlignmentToolbar
@@ -86,52 +80,11 @@ export default function Edit({ className, attributes, setAttributes }) {
 					/>
 				</BlockControls>
 
-				<BlockControls
-					controls={[
-						[
-							{
-								icon: "wordpress",
-								title: __("test", "mytheme-blocks"),
-								onClick: () => alert(true),
-								isActive: false,
-							},
-						],
-						[
-							{
-								icon: "wordpress",
-								title: __("test", "mytheme-blocks"),
-								onClick: () => alert(true),
-								isActive: false,
-							},
-						],
-					]}
-				/>
+				<FirstBlock attributes={attributes} setAttributes={setAttributes} />
 
-				<div className="container wp-box">
-					<RichText
-						tagName="h4"
-						placeholder="the title"
-						value={attributes.title}
-						onChange={(title) => setAttributes({ title })}
-						style={{
-							color: attributes.titleColor,
-							textAlign: attributes.alignment,
-						}}
-					/>
-
-					<RichText
-						tagName="p"
-						placeholder="give the deccription"
-						value={attributes.description}
-						onChange={(description) => setAttributes({ description })}
-						style={{ color: attributes.descriptionColor }}
-					/>
-
-					<InnerBlocks allowedBlocks={ALLOWED_BUTTON} />
-				</div>
-				<div>
+				{/* <div>
 					<Hello />
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
