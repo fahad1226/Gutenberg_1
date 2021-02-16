@@ -19,19 +19,13 @@
 import {
 	AlignmentToolbar,
 	BlockControls,
-	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
-	MediaUpload,
 	RichText,
 } from "@wordpress/block-editor";
-import {
-	IconButton,
-	PanelBody,
-	PanelRow,
-	RangeControl,
-} from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import Hello from "./components/Hello";
+import TopBar from "./components/Sidebar/TopBar";
 import "./editor.scss";
 import "./style.scss";
 
@@ -53,27 +47,6 @@ const MY_TERMPLATE = [
  * @return {WPElement} Element to render.
  */
 export default function Edit({ className, attributes, setAttributes }) {
-	const handleTitleColorChange = (newColor) => {
-		setAttributes({ titleColor: newColor });
-	};
-
-	const handleDescpColorChange = (newColor) => {
-		setAttributes({ descriptionColor: newColor });
-	};
-
-	const handleSelectedImage = (neweImage) => {
-		console.log(neweImage.sizes.full.url);
-		setAttributes({ backgroundImage: neweImage.sizes.full.url });
-	};
-
-	const handleoverlayColorChange = (newColor) => {
-		setAttributes({ overlayColor: newColor });
-	};
-
-	const handleoverlayOpacityChange = (newOpacity) => {
-		setAttributes({ overlayOpacity: newOpacity });
-	};
-
 	const handleAlignmentChange = (newAlignment) => {
 		setAttributes({ alignment: newAlignment });
 	};
@@ -89,63 +62,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 	return (
 		<div>
 			<InspectorControls style={{ marginBottom: "40px" }}>
-				<PanelBody title={"Font color setting"}>
-					<PanelRow>My Panel Inputs and Labels</PanelRow>
-					<p>
-						<strong>select a title color: </strong>
-					</p>
-					<ColorPalette
-						value={attributes.titleColor}
-						onChange={handleTitleColorChange}
-					/>
-					<p>
-						<strong>select a description color: </strong>
-					</p>
-					<ColorPalette
-						value={attributes.descriptionColor}
-						onChange={handleDescpColorChange}
-					/>
-				</PanelBody>
-
-				<PanelBody title={"Background image setting"}>
-					<p>
-						<strong>select a background image: </strong>
-					</p>
-
-					<MediaUpload
-						onSelect={handleSelectedImage}
-						type="image"
-						value={attributes.backgroundImage}
-						render={({ open }) => (
-							<IconButton
-								onClick={open}
-								icon="upload"
-								className="editor-media-placeholder__button is-button is-default is-large"
-							>
-								Background Image
-							</IconButton>
-						)}
-					/>
-
-					<div style={{ marginTop: "40px", marginBottom: "40px" }}>
-						<p>
-							<strong>overlay color setting:</strong>
-						</p>
-
-						<ColorPalette
-							value={attributes.overlayColor}
-							onChange={handleoverlayColorChange}
-						/>
-						<RangeControl
-							label="Columns"
-							value={attributes.overlayOpacity}
-							onChange={handleoverlayOpacityChange}
-							min={0}
-							max={1}
-							step={0.01}
-						/>
-					</div>
-				</PanelBody>
+				<TopBar attributes={attributes} setAttributes={setAttributes} />
 			</InspectorControls>
 
 			<div
@@ -211,6 +128,9 @@ export default function Edit({ className, attributes, setAttributes }) {
 					/>
 
 					<InnerBlocks allowedBlocks={ALLOWED_BUTTON} />
+				</div>
+				<div>
+					<Hello />
 				</div>
 			</div>
 		</div>
