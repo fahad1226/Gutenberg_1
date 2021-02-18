@@ -4,10 +4,11 @@ import {
 	PanelBody,
 	PanelRow,
 	RangeControl,
+	ToggleControl,
 } from "@wordpress/components";
 
-const TopBar = ({attributes, setAttributes}) => {
-    const handleTitleColorChange = (newColor) => {
+const TopBar = ({ attributes, setAttributes }) => {
+	const handleTitleColorChange = (newColor) => {
 		setAttributes({ titleColor: newColor });
 	};
 
@@ -86,6 +87,19 @@ const TopBar = ({attributes, setAttributes}) => {
 					/>
 				</div>
 			</PanelBody>
+
+			<div>
+				<PanelBody title="Check The Box">
+					<ToggleControl
+						label="Fixed Background"
+						onChange={(v) => console.log(v)}
+					/>
+					<ColorPalette
+						colors={[{ color: "black" }, { color: "white" }, { color: "blue" }]}
+						onChange={(v) => console.log(v)}
+					/>
+				</PanelBody>
+			</div>
 		</div>
 	);
 };
