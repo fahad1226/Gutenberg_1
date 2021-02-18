@@ -7,6 +7,8 @@ import {
 	ToggleControl,
 } from "@wordpress/components";
 
+import { __ } from "@wordpress/i18n";
+
 const TopBar = ({ attributes, setAttributes }) => {
 	const handleTitleColorChange = (newColor) => {
 		setAttributes({ titleColor: newColor });
@@ -27,6 +29,10 @@ const TopBar = ({ attributes, setAttributes }) => {
 
 	const handleoverlayOpacityChange = (newOpacity) => {
 		setAttributes({ overlayOpacity: newOpacity });
+	};
+
+	const handleBackgroundColorChange = (newBgColor) => {
+		setAttributes({ backgroundColor: newBgColor });
 	};
 	return (
 		<div>
@@ -96,7 +102,13 @@ const TopBar = ({ attributes, setAttributes }) => {
 					/>
 					<ColorPalette
 						colors={[{ color: "black" }, { color: "white" }, { color: "blue" }]}
-						onChange={(v) => console.log(v)}
+						onChange={handleBackgroundColorChange}
+					/>
+				</PanelBody>
+				<PanelBody title={__('selecet the text color: ')}>
+					<ColorPalette
+						colors={[{ color: "black" }, { color: "white" }, { color: "blue" }]}
+						onChange={handleBackgroundColorChange}
 					/>
 				</PanelBody>
 			</div>

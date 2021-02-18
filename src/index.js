@@ -110,6 +110,12 @@ registerBlockType("create-block/fahad-block", {
 			source: "html",
 			selector: "p",
 		},
+		backgroundColor: {
+			type: "string",
+		},
+		textColor: {
+			type: "string",
+		},
 	},
 
 	/**

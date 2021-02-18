@@ -1,4 +1,4 @@
-import { BlockControls, RichText, AlignmentToolbar } from "@wordpress/block-editor";
+import { BlockControls, RichText } from "@wordpress/block-editor";
 import { DropdownMenu, Toolbar, ToolbarButton } from "@wordpress/components";
 import {
 	arrowDown,
@@ -10,9 +10,10 @@ import {
 	link,
 	more,
 } from "@wordpress/icons";
+import "../../editor.scss";
 
 const SecondBlock = ({ attributes, setAttributes }) => {
-	const { alignment } = attributes;
+	const { alignment, backgroundColor, textColor } = attributes;
 
 	const handleChange = (newContent) => {
 		console.log(attributes);
@@ -24,24 +25,24 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 	return (
 		<div>
 			<BlockControls
-				// controls={[
-				// 	[
-				// 		{
-				// 			icon: "wordpress",
-				// 			title: "test/my-theme-block",
-				// 			onClick: () => alert("Hello"),
-				// 			isActive: false,
-				// 		},
-				// 	],
-				// 	[
-				// 		{
-				// 			icon: "wordpress",
-				// 			title: "test/my-theme-block",
-				// 			onClick: () => alert("Hello"),
-				// 			isActive: false,
-				// 		},
-				// 	],
-				// ]}
+			// controls={[
+			// 	[
+			// 		{
+			// 			icon: "wordpress",
+			// 			title: "test/my-theme-block",
+			// 			onClick: () => alert("Hello"),
+			// 			isActive: false,
+			// 		},
+			// 	],
+			// 	[
+			// 		{
+			// 			icon: "wordpress",
+			// 			title: "test/my-theme-block",
+			// 			onClick: () => alert("Hello"),
+			// 			isActive: false,
+			// 		},
+			// 	],
+			// ]}
 			>
 				{/* <AlignmentToolbar
 					onChange={ hanldeAlignmentChange }
@@ -84,14 +85,22 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 					)}
 			</BlockControls>
 
-			<RichText
-				tagName="p"
-				placeholder="give me someting"
-				value={attributes.secondDescription}
-				onChange={handleChange}
-				allowedFormats={["core/bold"]}
-				style={{ textAlign: alignment }}
-			/>
+			<div>
+				<RichText
+					tagName="p"
+					placeholder="give me someting"
+					value={attributes.secondDescription}
+					onChange={handleChange}
+					allowedFormats={["core/bold"]}
+					style={{
+						marginLeft: "50px",
+						width: "900px",
+						height: "200px",
+						textAlign: alignment,
+						backgroundColor: backgroundColor,
+					}}
+				/>
+			</div>
 		</div>
 	);
 };
