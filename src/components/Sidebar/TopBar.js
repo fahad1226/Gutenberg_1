@@ -1,4 +1,8 @@
-import { ColorPalette, MediaUpload } from "@wordpress/block-editor";
+import {
+	ColorPalette,
+	MediaUpload,
+	PanelColorSettings,
+} from "@wordpress/block-editor";
 import {
 	IconButton,
 	PanelBody,
@@ -6,7 +10,6 @@ import {
 	RangeControl,
 	ToggleControl,
 } from "@wordpress/components";
-
 import { __ } from "@wordpress/i18n";
 
 const TopBar = ({ attributes, setAttributes }) => {
@@ -34,6 +37,11 @@ const TopBar = ({ attributes, setAttributes }) => {
 	const handleBackgroundColorChange = (newBgColor) => {
 		setAttributes({ backgroundColor: newBgColor });
 	};
+
+	const handleTextColorChange = (newTextColor) => {
+		setAttributes({ textColor: newTextColor });
+	};
+
 	return (
 		<div>
 			<PanelBody title={"Font color setting"}>
@@ -100,17 +108,44 @@ const TopBar = ({ attributes, setAttributes }) => {
 						label="Fixed Background"
 						onChange={(v) => console.log(v)}
 					/>
-					<ColorPalette
+				</PanelBody>
+				<PanelBody title={__("select the background color: ")}>
+					<PanelColorSettings
+						title={__("Color Panel")}
+						colorSettings={[
+							{
+								value: attributes.backgroundColor,
+								onChange: handleBackgroundColorChange,
+								label: __("background Color", "fahad-block"),
+								colors: [
+									{ color: "black" },
+									{ color: "white" },
+									{ color: "blue" },
+								],
+							},
+							{
+								value: attributes.textColor,
+								onChange: handleTextColorChange,
+								label: __("text Color", "fahad-block"),
+								colors: [
+									{ color: "black" },
+									{ color: "green" },
+									{ color: "blue" },
+								],
+							},
+						]}
+					/>
+					{/* <ColorPalette
 						colors={[{ color: "black" }, { color: "white" }, { color: "blue" }]}
 						onChange={handleBackgroundColorChange}
-					/>
+					/> */}
 				</PanelBody>
-				<PanelBody title={__('selecet the text color: ')}>
+				{/* <PanelBody title={__("selecet the text color: ")}>
 					<ColorPalette
 						colors={[{ color: "black" }, { color: "white" }, { color: "blue" }]}
-						onChange={handleBackgroundColorChange}
+						onChange={handleTextColorChange}
 					/>
-				</PanelBody>
+				</PanelBody> */}
 			</div>
 		</div>
 	);

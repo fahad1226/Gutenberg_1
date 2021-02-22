@@ -70,6 +70,22 @@ registerBlockType("create-block/fahad-block", {
 		html: false,
 	},
 
+	styles: [
+		{
+			name: "rounded",
+			label: __("Rounded", "fahad-blocks"),
+			isDefault: true,
+		},
+		{
+			name: "outline",
+			label: __("Outline", "fahad-blocks"),
+		},
+		{
+			name: "sqaured",
+			label: __("Squared", "fahad-blocks"),
+		},
+	],
+
 	attributes: {
 		title: {
 			type: "string",
@@ -83,7 +99,7 @@ registerBlockType("create-block/fahad-block", {
 		},
 		titleColor: {
 			type: "string",
-			default: "#00008B",
+			default: "#6eb6d2",
 		},
 		descriptionColor: {
 			type: "string",
@@ -109,9 +125,12 @@ registerBlockType("create-block/fahad-block", {
 			type: "string",
 			source: "html",
 			selector: "p",
+			default:
+				"Content Toggle Block for Gutenberg makes it super easy to create toggle-able content",
 		},
 		backgroundColor: {
 			type: "string",
+			default: "#e0e4e6",
 		},
 		textColor: {
 			type: "string",

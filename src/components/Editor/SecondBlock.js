@@ -13,7 +13,13 @@ import {
 import "../../editor.scss";
 
 const SecondBlock = ({ attributes, setAttributes }) => {
-	const { alignment, backgroundColor, textColor } = attributes;
+	const {
+		alignment,
+		titleColor,
+		textColor,
+		backgroundColor,
+		secondDescription,
+	} = attributes;
 
 	const handleChange = (newContent) => {
 		console.log(attributes);
@@ -21,6 +27,10 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 	};
 	const hanldeAlignmentChange = (newAlignment) => {
 		setAttributes({ alignment: newAlignment });
+	};
+
+	const handleTitleChange = (newTitle) => {
+		console.log("Hello title");
 	};
 	return (
 		<div>
@@ -87,20 +97,45 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 
 			<div>
 				<RichText
-					tagName="p"
-					placeholder="give me someting"
-					value={attributes.secondDescription}
-					onChange={handleChange}
+					tagname="p"
+					placeholder="Title"
+					value={attributes.title}
+					onChange={handleTitleChange}
 					allowedFormats={["core/bold"]}
 					style={{
-						marginLeft: "50px",
 						width: "900px",
-						height: "200px",
+						textAlign: alignment,
+						backgroundColor: titleColor,
+						color: textColor,
+					}}
+				/> <button className="inline-block">+</button>
+				<RichText
+					tagName="p"
+					value={secondDescription}
+					onChange={handleChange}
+					allowedFormats={["core/bold"]}
+					
+					style={{
+						width: "900px",
+						marginTop: "2px",
+						paddingBottom: "45px",
+						paddingTop: "45px",
+						//marginBottom: "70px",
 						textAlign: alignment,
 						backgroundColor: backgroundColor,
+						color: textColor,
 					}}
 				/>
+				
 			</div>
+
+			{/* <div className="hello">
+				<p>
+					Hell Fahad Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Officiis molestias velit modi eos necessitatibus incidunt minima
+					voluptas, nemo rerum exercitationem.
+				</p>
+			</div> */}
 		</div>
 	);
 };

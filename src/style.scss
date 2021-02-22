@@ -10,6 +10,13 @@
 	color: #fff;
 	border-radius: 5px;
 	padding: 20px;
+	&.is-style-sqared {
+		border-radius: 0px;
+	}
+	&.is-style-outline {
+		border-radius: 0px;
+		border: 2px solid currentColor;
+	}
 }
 
 .block-editor-rich-text__editable {
@@ -20,7 +27,5 @@
 	width: 700px;
 	height: 200px;
 	margin: 20px;
-	background-color: #532626;
 	font-size: medium;
-	color:aqua;
 }
