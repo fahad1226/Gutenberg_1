@@ -9,8 +9,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from "@wordpress/block-editor";
-import SecondSave from "./components/Website/SecondSave";
+import { RichText } from "@wordpress/block-editor";
 import "./style.scss";
 /**
  * The save function defines the way in which the different attributes should
@@ -21,12 +20,49 @@ import "./style.scss";
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
-	const blockProps = useBlockProps.save();
+export default function save({ attributes, setAttributes }) {
 	return (
-		<div>
+		<div className="container">
+			{/* <div
+					style={{ backgroundColor: titleColor, width: "900px" }}
+					onClick={() =>
+						setAttributes({ toggleDescription: !toggleDescription })
+					}
+				> */}
+			<RichText.Content
+				tagname="p"
+				value={attributes.title}
+				onClick={() => setAttributes({ toggleDescription: !toggleDescription })}
+				style={{
+					paddingLeft: "10px",
+					paddingBottom: "10px",
+					paddingTop: "10px",
+					backgroundColor: attributes.titleColor,
+					width: "900px",
+					textAlign: attributes.alignment,
+					color: attributes.textColor,
+				}}
+			/>
+
+			<RichText.Content
+				tagName="p"
+				value={attributes.secondDescription}
+				style={{
+					width: "900px",
+					paddingLeft: "10px",
+					marginTop: "2px",
+					paddingBottom: "45px",
+					paddingTop: "45px",
+					//marginBottom: "70px",
+					textAlign: attributes.alignment,
+					backgroundColor: attributes.backgroundColor,
+					color: attributes.textColor,
+					minHeight: "200px",
+				}}
+			/>
+
 			{/* <FirstSave attributes={props.attributes} /> */}
-			<SecondSave attributes={attributes} />
+			{/* <SecondSave attributes={attributes} /> */}
 		</div>
 	);
 }

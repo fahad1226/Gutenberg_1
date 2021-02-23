@@ -1,4 +1,7 @@
-import { BlockControls, RichText } from "@wordpress/block-editor";
+import {
+	BlockControls,
+	RichText
+} from "@wordpress/block-editor";
 import { DropdownMenu, Toolbar, ToolbarButton } from "@wordpress/components";
 import {
 	arrowDown,
@@ -19,19 +22,22 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 		textColor,
 		backgroundColor,
 		secondDescription,
+		toggleDescription,
 	} = attributes;
 
-	const handleChange = (newContent) => {
-		console.log(attributes);
-		setAttributes({ secondDescription: newContent });
+	const handleDescriptionChange = (secondDescription) => {
+		console.log('desc chabges');
+		setAttributes({ secondDescription });
 	};
 	const hanldeAlignmentChange = (newAlignment) => {
 		setAttributes({ alignment: newAlignment });
 	};
 
 	const handleTitleChange = (newTitle) => {
-		console.log("Hello title");
+		console.log('title changes');
+		setAttributes({ title: newTitle });
 	};
+
 	return (
 		<div>
 			<BlockControls
@@ -95,38 +101,55 @@ const SecondBlock = ({ attributes, setAttributes }) => {
 					)}
 			</BlockControls>
 
-			<div>
+			<div  className="hello">
+				{/* <div
+					style={{ backgroundColor: titleColor, width: "900px" }}
+					onClick={() =>
+						setAttributes({ toggleDescription: !toggleDescription })
+					}
+				> */}
 				<RichText
 					tagname="p"
 					placeholder="Title"
 					value={attributes.title}
 					onChange={handleTitleChange}
 					allowedFormats={["core/bold"]}
+					onClick={() =>
+						setAttributes({ toggleDescription: !toggleDescription })
+					}
 					style={{
-						width: "900px",
-						textAlign: alignment,
+						paddingLeft: "10px",
+						paddingBottom: "10px",
+						paddingTop: "10px",
 						backgroundColor: titleColor,
-						color: textColor,
-					}}
-				/> <button className="inline-block">+</button>
-				<RichText
-					tagName="p"
-					value={secondDescription}
-					onChange={handleChange}
-					allowedFormats={["core/bold"]}
-					
-					style={{
 						width: "900px",
-						marginTop: "2px",
-						paddingBottom: "45px",
-						paddingTop: "45px",
-						//marginBottom: "70px",
 						textAlign: alignment,
-						backgroundColor: backgroundColor,
 						color: textColor,
 					}}
 				/>
-				
+				{/* </div> */}
+				{toggleDescription && (
+					<div style={{ marginBottom: "0px" }}>
+						<RichText
+							tagName="p"
+							value={secondDescription}
+							onChange={handleDescriptionChange}
+							allowedFormats={["core/bold"]}
+							style={{
+								width: "900px",
+								paddingLeft: "10px",
+								marginTop: "2px",
+								paddingBottom: "45px",
+								paddingTop: "45px",
+								//marginBottom: "70px",
+								textAlign: alignment,
+								backgroundColor: backgroundColor,
+								color: textColor,
+								minHeight: "200px",
+							}}
+						/>
+					</div>
+				)}
 			</div>
 
 			{/* <div className="hello">

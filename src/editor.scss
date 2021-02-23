@@ -6,6 +6,7 @@
 
 .wp-block-create-block-fahad-block {
 	border: 1px dotted rgb(100, 78, 78);
+	
 }
 .block-editor-rich-text__editable {
 	background-color: red($color: #532626);
@@ -13,12 +14,20 @@
 
 .editor-box {
 	width: 700px;
-	height: 300px;
+	height: 200px;
 }
 
 .hello {
-	border: 1px solid rgb(30, 147, 194);
-	padding: 15px;
-	min-width: 100px;
+	border: 2px solid rgba(8, 122, 167, 0.808);
+	min-width: 90px;
+	max-height: min-content;
 	display: inline-block;
+	margin-bottom: 0px;
+}
+
+.slide {
+	transition-property: width;
+	transition-duration: 2s;
+	transition-timing-function: linear;
+	transition-delay: 2s;
 }

@@ -126,14 +126,18 @@ registerBlockType("create-block/fahad-block", {
 			source: "html",
 			selector: "p",
 			default:
-				"Content Toggle Block for Gutenberg makes it super easy to create toggle-able content",
+				"Content Toggle Block for Gutenberg makes it super easy to create toggle-able content.  This toggle block comes with well-thought customization options.",
 		},
 		backgroundColor: {
 			type: "string",
-			default: "#e0e4e6",
+			default: "#ffffff",
 		},
 		textColor: {
 			type: "string",
+		},
+		toggleDescription: {
+			type: "boolean",
+			default: true,
 		},
 	},
 

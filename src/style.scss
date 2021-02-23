@@ -10,13 +10,6 @@
 	color: #fff;
 	border-radius: 5px;
 	padding: 20px;
-	&.is-style-sqared {
-		border-radius: 0px;
-	}
-	&.is-style-outline {
-		border-radius: 0px;
-		border: 2px solid currentColor;
-	}
 }
 
 .block-editor-rich-text__editable {
@@ -28,4 +21,12 @@
 	height: 200px;
 	margin: 20px;
 	font-size: medium;
+}
+
+.hello {
+	border: 2px solid rgba(8, 122, 167, 0.808);
+	min-width: 90px;
+	max-height: min-content;
+	display: inline-block;
+	margin-bottom: 0px;
 }
