@@ -8,27 +8,22 @@ const SecondSave = ({ attributes, setAttributes }) => {
 		textColor,
 		backgroundColor,
 		secondDescription,
+		toggleDescription,
 		title,
 	} = attributes;
 	return (
-		<div className="hello">
-			{/* <div
-					style={{ backgroundColor: titleColor, width: "900px" }}
-					onClick={() =>
-						setAttributes({ toggleDescription: !toggleDescription })
-					}
-				> */}
+		<div>
 			<RichText.Content
-				tagname="p"
+				tagName="p"
 				value={title}
 				style={{
+					backgroundColor: titleColor,
+					color: "black",
+					width: "900px",
+					minHeight: "30px",
 					paddingLeft: "10px",
 					paddingBottom: "10px",
 					paddingTop: "10px",
-					backgroundColor: titleColor,
-					width: "900px",
-					textAlign: alignment,
-					color: textColor,
 				}}
 			/>
 
@@ -36,15 +31,14 @@ const SecondSave = ({ attributes, setAttributes }) => {
 				tagName="p"
 				value={secondDescription}
 				style={{
+					backgroundColor: backgroundColor,
+					color: "black",
 					width: "900px",
+					marginBottom: "40px",
 					paddingLeft: "10px",
 					marginTop: "2px",
 					paddingBottom: "45px",
 					paddingTop: "45px",
-					//marginBottom: "70px",
-					textAlign: alignment,
-					backgroundColor: backgroundColor,
-					color: textColor,
 					minHeight: "200px",
 				}}
 			/>

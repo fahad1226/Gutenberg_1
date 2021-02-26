@@ -21,10 +21,10 @@ import {
 	BlockControls,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import FirstBlock from "./components/Editor/FirstBlock";
 import SecondBlock from "./components/Editor/SecondBlock";
 import Typography from "./components/Sidebar/Practice/Typography";
 import TopBar from "./components/Sidebar/TopBar";
+import "./components/team-members";
 import "./editor.scss";
 import "./style.scss";
 
