@@ -61,6 +61,7 @@ registerBlockType("create-block/team-member", {
 	 */
 	supports: {
 		// Removes support for an HTML mode.
+		reusable: false,
 		html: false,
 	},
 

@@ -1,13 +1,49 @@
-.wp-block-fahad-blocks-team-member {
-	&__title {
-		color: rgb(10, 9, 9);
-		font-size: 18px;
-		font-weight: bold;
-		margin-bottom: 0;
+.wp-block-fahad-blocks-team-members {
+	display: flex;
+	flex-wrap: wrap;
+
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns {
+			.wp-block-fahad-blocks-team-member {
+				border-style: double;
+				margin: 5px;
+				&__title {
+					color: rgb(10, 9, 9);
+					font-size: 18px;
+					font-weight: bold;
+					margin-bottom: 5px;
+					//width: calc(100% /#{$i});
+					width: 400px;
+					background-color: #0b5cc5;
+					
+				}
+				&__info {
+					width: 400px;
+				
+					//width: calc(100% /#{$i});
+					color: #565656;
+					font-weight: 300px;
+					margin-bottom: 5px;
+					background-color: #ddaf18;
+				}
+			}
+		}
 	}
-	&__info {
-		color: #565656;
-		font-weight: 300px;
-		margin-bottom: 5px;
-	}
+
+	// .wp-block-fahad-blocks-team-member {
+	// 	&__title {
+	// 		color: rgb(10, 9, 9);
+	// 		font-size: 18px;
+	// 		font-weight: bold;
+	// 		margin-bottom: 0;
+	// 		//width: 200px;
+	// 	}
+	// 	&__info {
+	// 		//width: 200px;
+	// 		color: #565656;
+	// 		font-weight: 300px;
+	// 		margin-bottom: 5px;
+	// 		background-color: #ddaf18;
+	// 	}
+	// }
 }

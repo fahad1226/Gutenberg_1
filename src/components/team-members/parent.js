@@ -1,8 +1,4 @@
-import {
-	InnerBlocks,
-	InspectorControls,
-	RichText,
-} from "@wordpress/block-editor";
+import { InnerBlocks, InspectorControls } from "@wordpress/block-editor";
 import { registerBlockType } from "@wordpress/blocks";
 import { PanelBody, RangeControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -38,6 +34,11 @@ registerBlockType("create-block/team-members", {
 	 */
 	category: "common",
 
+	supports: {
+		// Removes support for an HTML mode.
+		html: false,
+	},
+
 	keywords: [
 		__("team", "team-members"),
 		__("person", "team-members"),
@@ -55,7 +56,9 @@ registerBlockType("create-block/team-members", {
 	edit({ className, attributes, setAttributes }) {
 		const { columns } = attributes;
 		return (
-			<div className={`${className} has-${columns}-columns `}>
+			<div
+				className={`wp-block-fahad-blocks-team-members has-${columns}-columns`}
+			>
 				<InspectorControls style={{ marginBottom: "40px" }}>
 					<PanelBody title="My Block Settings">
 						<RangeControl
@@ -68,7 +71,6 @@ registerBlockType("create-block/team-members", {
 					</PanelBody>
 				</InspectorControls>
 
-				<RichText tagName="p" value="hey fahd" />
 				<InnerBlocks
 					allowedBlocks={["create-block/team-member"]}
 					template={[["create-block/team-member"]]}
@@ -81,10 +83,12 @@ registerBlockType("create-block/team-members", {
 	/**
 	 * @see ./save.js
 	 */
-	save({ attributes }) {
+	save({ className, attributes }) {
 		const { columns } = attributes;
 		return (
-			<div className={`has-${columns}-columns`}>
+			<div
+				className={`wp-block-fahad-blocks-team-members has-${columns}-columns`}
+			>
 				<InnerBlocks.Content />
 			</div>
 		);
